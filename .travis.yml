@@ -43,6 +43,17 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.6
         - BUILD_SDIST=1
+    - os: linux  # Bundle 64 bit library.
+      arch: arm64
+      env:
+        - MB_PYTHON_VERSION=3.6
+        - USE_CCACHE=1
+        - FREETYPEPY_BUNDLE_FT=1
+    - os: linux  # No bundling.
+      arch: arm64
+      env:
+        - MB_PYTHON_VERSION=3.6
+        - BUILD_SDIST=1
     - os: osx
       language: generic
       env:
