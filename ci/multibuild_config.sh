@@ -6,6 +6,7 @@ function pre_build {
     # Runs in the root directory of this repository.
     if [ -z "$IS_OSX" ]; then
       if [ `uname -m` = "aarch64" ]; then
+         yum update -y && yum install -y wget && yum clean all;
          mkdir /tmp/dl;
          cd /tmp/dl;
          wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz;
