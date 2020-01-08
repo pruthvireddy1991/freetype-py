@@ -5,7 +5,7 @@ function pre_build {
     # Any stuff that you need to do before you start building the wheels
     # Runs in the root directory of this repository.
     if [ -z "$IS_OSX" ]; then
-      if [ "$TRAVIS_CPU_ARCH" == "arm64" ]; then
+      if [ `uname -m` = "aarch64" ]; then
          mkdir /tmp/dl;
          cd /tmp/dl;
          wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz;
