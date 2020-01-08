@@ -5,8 +5,16 @@ function pre_build {
     # Any stuff that you need to do before you start building the wheels
     # Runs in the root directory of this repository.
     if [ -z "$IS_OSX" ]; then
-        pip install scikit-build;
-        pip install cmake;  # Version in manylinux1 container too old.
+      if [ "$TRAVIS_CPU_ARCH" == "arm64" ]; then
+         mkdir /tmp/dl;
+         cd /tmp/dl;
+         wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz;
+         tar -zxvf cmake-3.13.3.tar.gz;
+         cd cmake-3.13.3 && ./bootstrap --prefix=/usr/local && make && make install && export PATH=/usr/local/bin:$PATH
+      else
+         pip install cmake;
+      fi
+  # Version in manylinux1 container too old.
     fi
 }
 
