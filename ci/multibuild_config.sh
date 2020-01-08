@@ -11,7 +11,7 @@ function pre_build {
          cd /tmp/dl;
          wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz;
          tar -zxvf cmake-3.13.3.tar.gz;
-         cd cmake-3.13.3 && ./bootstrap --prefix=/usr/local && make && make install && export PATH=/usr/local/bin:$PATH
+         cd cmake-3.13.3 && ./bootstrap --prefix=/usr/local && make && make install && export PATH=/usr/local/bin:$PATH;
       else
          pip install cmake;
       fi
