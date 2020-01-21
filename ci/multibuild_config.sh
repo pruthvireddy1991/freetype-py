@@ -6,12 +6,9 @@ function pre_build {
     # Runs in the root directory of this repository.
     if [ -z "$IS_OSX" ]; then
       if [ `uname -m` = "aarch64" ]; then
-         yum update -y && yum install -y wget && yum clean all;
-         mkdir /tmp/dl;
-         cd /tmp/dl;
-         wget https://cmake.org/files/v3.13/cmake-3.13.3.tar.gz;
-         tar -zxvf cmake-3.13.3.tar.gz;
-         cd cmake-3.13.3 && ./bootstrap --prefix=/usr/local && make && make install && export PATH=/usr/local/bin:$PATH;
+         yum update -y && yum install -y epel-release && yum clean all;
+         yum install -y jsoncpp cmake3;
+         ln -sf /usr/bin/cmake3 /usr/bin/cmake;
       else
          pip install cmake;
       fi
