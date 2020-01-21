@@ -81,9 +81,9 @@ if "linux" in sys.platform:
         bitness = 32
     else:
         print("# Making a 64 bit build.")
-        CMAKE_GLOBAL_SWITCHES += ('-DCMAKE_C_FLAGS="-m64 -O2" '
-                                  '-DCMAKE_CXX_FLAGS="-m64 -O2" '
-                                  '-DCMAKE_LD_FLAGS="-m64" ')
+        CMAKE_GLOBAL_SWITCHES += ('-DCMAKE_C_FLAGS=" -O2" '
+                                  '-DCMAKE_CXX_FLAGS=" -O2" '
+                                  '-DCMAKE_LD_FLAGS="" ')
         bitness = 64
 
 
