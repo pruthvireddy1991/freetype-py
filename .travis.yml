@@ -53,6 +53,7 @@ matrix:
       arch: arm64
       env:
         - MB_PYTHON_VERSION=3.6
+        - MB_ML_VER=2014
         - PLAT = aarch64
         - BUILD_SDIST=1
     - os: osx
