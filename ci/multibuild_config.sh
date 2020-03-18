@@ -9,6 +9,8 @@ function pre_build {
          yum update -y && yum install -y epel-release && yum clean all;
          yum install -y jsoncpp cmake3;
          ln -sf /usr/bin/cmake3 /usr/bin/cmake;
+         pip install scikit-build;
+         pip install cmake;
       else
          pip install cmake;
       fi
