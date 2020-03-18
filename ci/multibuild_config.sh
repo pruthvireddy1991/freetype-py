@@ -5,7 +5,15 @@ function pre_build {
     # Any stuff that you need to do before you start building the wheels
     # Runs in the root directory of this repository.
     if [ -z "$IS_OSX" ]; then
-        pip install cmake  # Version in manylinux1 container too old.
+	if [ `uname -m` = "aarch64" ]; then
+         yum update -y && yum install -y epel-release && yum clean all;
+         yum install -y jsoncpp cmake3;
+         ln -sf /usr/bin/cmake3 /usr/bin/cmake;
+         pip install scikit-build;
+         pip install cmake;
+        else
+         pip install cmake;
+        fi
     fi
 }
 

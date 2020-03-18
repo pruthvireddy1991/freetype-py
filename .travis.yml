@@ -43,6 +43,22 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.6
         - BUILD_SDIST=1
+    - os: linux  # Bundle 64 bit library.
+      arch: arm64
+      env:
+        - MB_PYTHON_VERSION=3.6
+        - MB_ML_VER=2014
+        - PLAT=aarch64
+        - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
+        - FREETYPEPY_BUNDLE_FT=1
+    - os: linux  # No bundling.
+      arch: arm64
+      env:
+        - MB_PYTHON_VERSION=3.6
+        - MB_ML_VER=2014
+        - PLAT = aarch64
+        - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
+        - BUILD_SDIST=1
     - os: osx
       language: generic
       env:
